@@ -1,0 +1,48 @@
+<div>
+  <div *ngIf="storeAttributes">
+    <div class="card">
+      <div class="card-header">
+        Quick Links
+      </div>
+      <div class="card-body">
+        <div *ngIf=" (commInfo)">
+          <div>Site Controller IP: {{commInfo.ipAddress}}</div>
+
+          <div *ngIf=" (commInfo) && !(commInfo.commEquipmentID==2)">
+            <div>
+              UserName: {{commInfo.userName}}
+            </div>
+            <div>
+              password: {{commInfo.password}}
+            </div>
+            <div>
+              <a href="https://{{commInfo.ipAddress}}/ConfigClient.html">Config Client</a>
+            </div>
+            <div>
+              <a href="https://{{commInfo.ipAddress}}">Journal Browser (IE Only)</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="searchBox" class="col-sm-2">Search</label>
+      <input id="searchBox" class="form-control col-sm-4" type="text" [(ngModel)]="searchText"/>
+    </div>
+    <div *ngFor="let g of groups">
+      <div class="card" *ngIf="(storeAttributes | storeId:g |attribFilter:searchText).length > 0">
+        <div class="card-header">
+          {{g}}
+        </div>
+        <div *ngFor="let sa of storeAttributes | storeId:g | attribFilter:searchText as sa">
+          <div class="card-body">
+            <app-store-attribute-line [attrib]="sa"></app-store-attribute-line>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

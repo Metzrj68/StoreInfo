@@ -1,0 +1,11 @@
+<div class="card-body">
+  <form #storeAttributeForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row col-12">
+      <label for="attributeValue" class="col-form-label col-sm-4">{{attrib.Attribute}}</label>
+      <div class="col-6">
+        <input type="text" class="form-control {{successClass}}" id="attributeValue" placeholder=""[(ngModel)]="attrib.Value" name="Value" [readonly]="!readonly"/>
+      </div>
+      <button [hidden]="!readonly" type="submit" class="btn btn-primary">{{buttonText}}</button>
+    </div>
+  </form>
+</div>

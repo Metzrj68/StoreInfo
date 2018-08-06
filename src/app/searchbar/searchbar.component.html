@@ -1,0 +1,8 @@
+<div class="col-6 offset-6">
+
+  <ng-select #storeSelect placeholder="Select Store" [items]="stores" bindLabel="display" bindValue="key"
+             (change)="storeSelected()" [(ngModel)]="selectedStore" (open)="opened()" [clearSearchOnAdd]="true" clearAllText="true">
+  </ng-select>
+  <app-store-attributes ></app-store-attributes>
+</div>
+
