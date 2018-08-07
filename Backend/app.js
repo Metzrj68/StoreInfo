@@ -6,15 +6,15 @@ var logger = require('morgan');
 //var StoreAttribService = require('./services/storeAttribute.service')
 var indexRouter = require('./routes/index');
 var storeRouter = require('./routes/stores');
-var mongoose = require('mongoose')
+//var mongoose = require('mongoose')
 var app = express();
 var bodyParser = require('body-parser')
-var config = require('./db/config');
+//var config = require('./db/config');
 var User = require('./models/user');
 var AuthRouter = require('./routes/auth');
 var session = require('express-session')
-mongoose.connect(config.database);
-app.set('superSecret', config.secret)
+//mongoose.connect(config.database);
+//app.set('superSecret', config.secret)
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
